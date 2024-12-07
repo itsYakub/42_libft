@@ -6,7 +6,7 @@
 /*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:56:00 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 12:03:33 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:32:57 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	p = (unsigned char *) s;
 	i = 0;
-	while (i < n)
+	while (i < (int) n)
 	{
 		if (p[i] == c)
 			return (&p[i]);

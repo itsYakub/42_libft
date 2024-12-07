@@ -6,7 +6,7 @@
 /*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:08:23 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 14:06:50 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/07 16:53:27 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	*ft_memset(void *dest, int ch, size_t count)
 {
-	int	i;
+	unsigned char	*dcpy;
+	int				i;
 
 	i = 0;
+	dcpy = (unsigned char *) dest;
 	while (i < (int) count)
-		dest[i] = ch;
+		dcpy[i] = ch;
 	return (dest);
 }

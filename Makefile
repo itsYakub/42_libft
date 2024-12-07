@@ -12,7 +12,7 @@ $(OBJ): ./%.o: ./%.c
 
 all: $(TARGET)
 
-.PHONY clean fclean re
+.PHONY: clean fclean re
 
 clean:
 	rm -f $(OBJ)
