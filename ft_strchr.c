@@ -6,7 +6,7 @@
 /*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:04:36 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 11:19:06 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:41:48 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,5 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
-	{
-		if (*s == c)
-			return ((char *) s);
-		s++;
-	}
-	return (NULL);
+	return (char *) ft_memchr((const char *) s, c, ft_strlen(s) + 1);
 }

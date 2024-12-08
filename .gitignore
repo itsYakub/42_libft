@@ -6,3 +6,6 @@
 *.obj
 *.a
 *.so
+
+# directories
+libftTester/

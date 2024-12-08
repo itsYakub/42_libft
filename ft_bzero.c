@@ -6,7 +6,7 @@
 /*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:11:36 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 16:52:44 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:12:44 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_bzero(void *ptr, size_t n)
 
 	i = 0;
 	p = (unsigned char *) ptr;
-	while ((p[i]) && (i < (int) n))
-		p[i] = 0;
+	while (p && n--)
+		*p++ = 0;
 	return (ptr);
 }

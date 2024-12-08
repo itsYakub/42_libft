@@ -6,7 +6,7 @@
 /*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:15:26 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 16:53:09 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:17:58 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 	dcpy = (unsigned char *) dest;
 	scpy = (unsigned char *) src;
 	if (dest < src)
-		dest = ft_memcpy(dest, src, count);
+	{
+		while (count--)
+			*dcpy++ = *scpy++; 
+	}
 	else
 	{
 		lasts = scpy + (count - 1);

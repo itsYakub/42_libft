@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:05:35 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 16:17:16 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/08 19:23:35 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
+	char	*sstart;
+	char	*send;
 	char	*result;
 
-	if (!s1)
-		return (NULL);
-	result = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
+	sstart = (char *) s1;
+	while (*sstart && ft_strchr(set, *sstart))
+		sstart++;
+	send = (char *) s1 + ft_strlen(s1);
+	while (send > sstart && ft_strchr(set, *send))
+		send++;
+	result = (char *) ft_calloc(send - sstart + 1, sizeof(char));
 	if (!result)
 		return (NULL);
-	i = -1;
-	j = -1;
-	while (s1[++i])
-	{
-		if (!ft_strchr(set, s1[i]))
-			result[++j] = s1[i];
-	}
-	result[++j] = 0;
+	result = ft_strncpy(result, sstart, send - sstart);
 	return (result);
 }
