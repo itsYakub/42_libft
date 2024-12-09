@@ -19,8 +19,8 @@ static char	**fts_strproc(char **ptr, const char *s, char c, int i);
 char	**ft_split(char const *s, char c)
 {
 	char	**warr;
-
-	warr = (char **) malloc(sizeof(char *));
+    
+    warr = (char **) malloc(sizeof(char *));
 	if (!warr)
 		return (NULL);
 	return (fts_strproc(warr, s, c, 0));
@@ -29,15 +29,15 @@ char	**ft_split(char const *s, char c)
 static char	*fts_strndup(const char *s, size_t n)
 {
 	char	*result;
-	int		i;
+	char    *rptr;
 
-	result = (char *) ft_calloc(n + 1, sizeof(char));
+	result = (char *) calloc(n + 1, sizeof(char));
 	if (!result)
 		return (NULL);
-	i = -1;
-	while (++i < (int) n)
-		result[i] = s[i];
-	return (result);
+	rptr = result;
+	while (n--)
+        *result++ = *s++;
+	return (rptr);
 }
 
 static void	*fts_realloc(void *ptr, size_t s)
@@ -58,25 +58,24 @@ static char	**fts_strproc(char **ptr, const char *s, char c, int i)
 	char	*wend;
 
 	wstart = (char *) s;
-	while (*wstart == c)
-		wstart++;
-	wend = wstart;
-	while (*wend != c)
-		wend++;
-	i = 0;
-	while (*wstart)
-	{
-		ptr[i++] = fts_strndup(wstart, wend - wstart);
-		ptr = (char **) fts_realloc(ptr, (i + 1) * sizeof(char *));
-		if (!ptr)
-			return (NULL);
-		wstart = wend;
-		while (*wstart == c)
-			wstart++;
-		wend = wstart;
-		while (*wend && *wend != c)
-			wend++;
-	}
-	ptr[i] = NULL;
-	return (ptr);
+    while (*wstart && *wstart == c)
+        wstart++;
+    wend = wstart;
+    while (*wend && *wend != c)
+        wend++;
+    while (*wstart)
+    {
+        ptr[i++] = fts_strndup(wstart, wend - wstart);
+        ptr = (char **) fts_realloc(ptr, (i + 1) * sizeof (char *));
+        if (!ptr)
+            return (NULL);
+        wstart = wend;
+        while (*wstart && *wstart == c)
+            wstart++;
+        wend = wstart + 1;
+        while (*wend && *wend != c)
+            wend++;
+    }
+    ptr[i] = NULL;
+    return (ptr);
 }

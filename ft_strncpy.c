@@ -15,11 +15,9 @@
 char	*ft_strncpy(char *dest, const char *src, size_t count)
 {
 	char	*d;
-	char	*s;
 
 	d = dest;
-	s = (char *) src;
 	while (count--)
 		*dest++ = *src++;
-	return (dest);
+	return (d);
 }
