@@ -12,70 +12,51 @@
 
 #include "libft.h"
 
-static char	*fts_strndup(const char *s, size_t n);
-static void	*fts_realloc(void *ptr, size_t s);
-static char	**fts_strproc(char **ptr, const char *s, char c, int i);
+static int	fts_tokc(const char *s, char c);
 
 char	**ft_split(char const *s, char c)
 {
 	char	**warr;
-    
-    warr = (char **) malloc(sizeof(char *));
+	int		tlen;
+	int		i;
+
+	warr = (char **) malloc((fts_tokc(s, c) + 1) * sizeof(char *));
 	if (!warr)
 		return (NULL);
-	return (fts_strproc(warr, s, c, 0));
+	i = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+		{
+			if (ft_strchr(s, c))
+				tlen = ft_strchr(s, c) - s;
+			else if (!ft_strchr(s, c))
+				tlen = ft_strlen(s);
+			warr[i++] = ft_substr(s, 0, tlen);
+			s += tlen;
+		}
+	}
+	warr[i] = NULL;
+	return (warr);
 }
 
-static char	*fts_strndup(const char *s, size_t n)
+static int	fts_tokc(const char *s, char c)
 {
-	char	*result;
-	char    *rptr;
+	int	res;
 
-	result = (char *) calloc(n + 1, sizeof(char));
-	if (!result)
-		return (NULL);
-	rptr = result;
-	while (n--)
-        *result++ = *s++;
-	return (rptr);
-}
-
-static void	*fts_realloc(void *ptr, size_t s)
-{
-	void	*res;	
-
-	res = malloc(s);
-	if (!res)
-		return (NULL);
-	ft_memmove(res, ptr, s);
-	free(ptr);
+	if (!s || !*s)
+		return (0);
+	res = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s && *s != c)
+			res++;
+		while (*s && *s != c)
+			s++;
+	}
 	return (res);
-}
-
-static char	**fts_strproc(char **ptr, const char *s, char c, int i)
-{
-	char	*wstart;
-	char	*wend;
-
-	wstart = (char *) s;
-    while (*wstart && *wstart == c)
-        wstart++;
-    wend = wstart;
-    while (*wend && *wend != c)
-        wend++;
-    while (*wstart)
-    {
-        ptr[i++] = fts_strndup(wstart, wend - wstart);
-        ptr = (char **) fts_realloc(ptr, (i + 1) * sizeof (char *));
-        if (!ptr)
-            return (NULL);
-        wstart = wend;
-        while (*wstart && *wstart == c)
-            wstart++;
-        wend = wstart + 1;
-        while (*wend && *wend != c)
-            wend++;
-    }
-    ptr[i] = NULL;
-    return (ptr);
 }

@@ -40,8 +40,12 @@ static int	fts_numlen(int n)
 		n *= -1;
 		result++;
 	}
-	while (n /= 10)
-		result++;
+	while (n)
+	{
+		n /= 10;
+		if (n)
+			result++;
+	}
 	return (result);
 }
 
@@ -59,7 +63,7 @@ static char	*fts_strproc(char *s, int n)
 			if (n == -2147483648)
 			{
 				ft_strncpy(s, "-2147483648", ft_strlen("-2147483648"));
-				return s;
+				return (s);
 			}
 			*s++ = '-';
 			n *= -1;

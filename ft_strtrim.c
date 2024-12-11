@@ -14,23 +14,22 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-    char    *str;
-    char    *sptr;
-    char	*sstart;
-    char	*send;
+	char	*str;
+	char	*sptr;
+	char	*sstart;
+	char	*send;
 
-    sstart = (char *) s1;
-    while (*sstart && ft_strchr(set, *sstart))
-        sstart++;
-    send = (char *) s1 + ft_strlen(s1);
-    while (send > sstart && ft_strchr(set, *send))
-        send--;
-    str = (char *) ft_calloc((send - sstart + 2), sizeof(char));
-    if (!str)
-        return (NULL);
-    sptr = str;
-    while (sstart <= send)
-        *str++ = *sstart++;
-    return (sptr);
+	sstart = (char *) s1;
+	while (*sstart && ft_strchr(set, *sstart))
+		sstart++;
+	send = (char *) s1 + ft_strlen(s1);
+	while (send > sstart && ft_strchr(set, *send))
+		send--;
+	str = (char *) ft_calloc((send - sstart + 2), sizeof(char));
+	if (!str)
+		return (NULL);
+	sptr = str;
+	while (sstart <= send)
+		*str++ = *sstart++;
+	return (sptr);
 }
-

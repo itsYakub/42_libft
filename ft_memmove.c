@@ -24,7 +24,7 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 	if (dest < src)
 	{
 		while (count--)
-			*dcpy++ = *scpy++; 
+			*dcpy++ = *scpy++;
 	}
 	else
 	{

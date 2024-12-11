@@ -13,31 +13,32 @@
 #include "libft.h"
 
 /* Source:																	*
- * https://github.com/openbsd/src/blob/master/lib/libc/string/strlcpy.c		*/
+ * - https://github.com/openbsd/src/blob/master/lib/libc/string/strlcpy.c	*
+ * - https://github.com/lattera/freebsd/blob/master/sys/libkern/strlcpy.c   */
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*org_s;
-	int		nleft;
-	char	*check;
+	char	*d;
+	char	*s;
+	size_t	n;
 
-	org_s = (char *) src;
-	nleft = (int) size;
-	if (nleft)
+	d = dst;
+	s = (char *) src;
+	n = size;
+	if (n)
 	{
-		while (--nleft)
+		while (--n)
 		{
-			check = dst;
-			*dst++ = *src++;
-			if (check == 0)
+			*d++ = *s;
+			if (!*s++)
 				break ;
 		}
 	}
-	if (!nleft)
+	if (!n)
 	{
-		if (!size)
-			*dst = 0;
-		while (*src++)
+		if (size != 0)
+			*d = 0;
+		while (*s++)
 			;
 	}
-	return (src - org_s - 1);
+	return (s - src - 1);
 }
