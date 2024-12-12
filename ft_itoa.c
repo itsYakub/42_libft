@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stddef.h>
 
 static int	fts_numlen(int n);
 static char	*fts_strproc(char *s, int n);
@@ -25,8 +24,6 @@ char	*ft_itoa(int n)
 	if (!result)
 		return (NULL);
 	result = fts_strproc(result, n);
-	if (n > 0)
-		fts_strrev(result, (size_t) ft_strlen(result));
 	return (result);
 }
 
@@ -52,29 +49,30 @@ static int	fts_numlen(int n)
 static char	*fts_strproc(char *s, int n)
 {
 	char	*scpy;
+	int		negative;
 
 	scpy = s;
+	negative = 0;
 	if (n == 0)
 		*s++ = '0';
-	else
+	else if (n < 0)
 	{
-		if (n < 0)
+		if (n == -2147483648)
 		{
-			if (n == -2147483648)
-			{
-				ft_strncpy(s, "-2147483648", ft_strlen("-2147483648"));
-				return (s);
-			}
-			*s++ = '-';
-			n *= -1;
+			ft_strncpy(s, "-2147483648", 11);
+			return (s);
 		}
-		while (n)
-		{
-			*s++ = n % 10 + '0';
-			n /= 10;
-		}
+		negative = 1;
+		n *= -1;
 	}
-	return (scpy);
+	while (n)
+	{
+		*s++ = n % 10 + '0';
+		n /= 10;
+	}
+	if (negative)
+		*s++ = '-';
+	return (fts_strrev(scpy, ft_strlen(scpy)));
 }
 
 static char	*fts_strrev(char *s, size_t len)

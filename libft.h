@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* SECTION: Function definitions (PART: 1) */
+/* SECTION: Function declarations (PART: 1) */
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
@@ -40,7 +40,7 @@ int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 
-/* SECTION: Function definitions (PART: 2) */
+/* SECTION: Function declarations (PART: 2) */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
