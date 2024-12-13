@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 11:43:52 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/08 12:04:16 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/13 08:56:38 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 
 	slen = ft_strlen(s);
-	scpy = (char *) calloc(slen + 1, sizeof(char));
+	scpy = (char *) ft_calloc(slen + 1, sizeof(char));
 	if (!scpy)
 		return (NULL);
 	i = -1;

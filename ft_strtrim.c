@@ -6,7 +6,7 @@
 /*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:05:35 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/13 08:05:34 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/13 11:12:23 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*sstart;
 	char	*send;
 
+	if (!set || !s1)
+		return (NULL);
 	sstart = (char *) s1;
 	while (*sstart && ft_strchr(set, *sstart))
 		sstart++;
