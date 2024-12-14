@@ -6,7 +6,7 @@
 /*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:57:54 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/14 09:51:36 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 14:03:03 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	int		i;
 	char	*result;
 
-	if (!s)
-		return (NULL);
 	len = ft_strlen(s);
 	result = (char *) malloc((len + 1) * sizeof (char));
 	if (!result)

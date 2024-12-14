@@ -6,7 +6,7 @@
 /*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 10:00:36 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/14 10:39:46 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 14:05:03 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		d++;
 	dlen = d - dst;
 	n = size - dlen;
-	if (!d || !n)
+	if (!n)
 		return (dlen + ft_strlen(s));
 	while (s && *s)
 	{

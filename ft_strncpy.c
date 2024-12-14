@@ -6,7 +6,7 @@
 /*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:51:31 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/14 10:09:59 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 15:03:26 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strncpy(char *dest, const char *src, size_t count)
 	char	*d;
 
 	d = dest;
-	if (!dest || !src)
-		return (NULL);
-	while (count--)
+	while (*src && (ssize_t) count-- > 0)
 		*dest++ = *src++;
+	while ((ssize_t) count-- > 0)
+		*dest++ = '\0';
 	return (d);
 }
