@@ -1,5 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
 SRC = \
 	ft_bzero.c \
 	ft_isdigit.c \
@@ -58,5 +59,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-
