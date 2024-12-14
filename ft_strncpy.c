@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:51:31 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 09:55:20 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 10:09:59 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strncpy(char *dest, const char *src, size_t count)
 	char	*d;
 
 	d = dest;
+	if (!dest || !src)
+		return (NULL);
 	while (count--)
 		*dest++ = *src++;
 	return (d);

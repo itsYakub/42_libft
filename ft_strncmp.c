@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 11:44:03 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/08 13:59:44 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 10:10:14 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	unsigned char	c1;
 	unsigned char	c2;
 
+	if (!s1 || !s2)
+		return (0);
 	while (n--)
 	{
 		c1 = (unsigned char) *s1++;

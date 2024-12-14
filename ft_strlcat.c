@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 10:00:36 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/07 16:39:31 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 10:13:25 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	dlen;
 	size_t	n;
 
+	if (!size && (!dst || !src))
+		return (0);
 	d = dst;
 	s = (char *) src;
 	n = size;

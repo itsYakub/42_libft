@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 13:32:48 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/08 15:59:27 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 10:07:27 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	ft_atoi(const char *nptr)
 
 	result = 0;
 	sign = 1;
-	while (!ft_isprint(*nptr))
+	if (!nptr)
+		return (0);
+	while (*nptr <= 32)
 		nptr++;
 	if (*nptr == '-' || *nptr == '+')
 	{

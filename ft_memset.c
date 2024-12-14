@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joleksia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:08:23 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/08 13:09:11 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/14 10:08:02 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	*ft_memset(void *dest, int ch, size_t count)
 {
 	unsigned char	*dcpy;
-	int				i;
 
-	i = 0;
 	dcpy = (unsigned char *) dest;
-	while (i < (int) count)
-		dcpy[i++] = ch;
+	if (!dest)
+		return (NULL);
+	while (count--)
+		*dcpy++ = ch;
 	return (dest);
 }
