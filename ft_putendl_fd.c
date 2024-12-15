@@ -6,7 +6,7 @@
 /*   By: joleksia <joleksia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 15:12:13 by joleksia          #+#    #+#             */
-/*   Updated: 2024/12/14 10:16:02 by joleksia         ###   ########.fr       */
+/*   Updated: 2024/12/15 16:18:44 by joleksia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
-	write(fd, "\n", 2);
+	write(fd, "\n", 1);
 }
