@@ -12,7 +12,7 @@ SRC = \
 	ft_calloc.c \
 	ft_isprint.c \
 	ft_memmove.c \
-	ft_putstr_ft.c \
+	ft_putstr_fd.c \
 	ft_strjoin.c \
 	ft_strncmp.c \
 	ft_substr.c \
