@@ -20,7 +20,9 @@ char	**ft_split(char const *s, char c)
 	int		tlen;
 	int		i;
 
-	warr = (char **) malloc((fts_tokc(s, c) + 1) * sizeof(char *));
+	if (!s)
+		return (NULL);
+	warr = (char **) ft_calloc((fts_tokc(s, c) + 1), sizeof(char *));
 	if (!warr)
 		return (NULL);
 	i = 0;
@@ -38,7 +40,6 @@ char	**ft_split(char const *s, char c)
 			s += tlen;
 		}
 	}
-	warr[i] = NULL;
 	return (warr);
 }
 
